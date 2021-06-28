@@ -3,8 +3,8 @@ import { FastifyRequest } from 'fastify';
 
 export const HelloTypes = Type.Object({
   name: Type.String(),
-  mail: Type.Optional(Type.String({ format: 'email' }))
-  // age: Type.Optional(Type.Number())
+  mail: Type.Optional(Type.String({ format: 'email' })),
+  age: Type.Optional(Type.Number())
 });
 
 export type HelloBodyType = Static<typeof HelloTypes>;
@@ -21,7 +21,7 @@ export const helloSchema = {
     200: {
       type: 'object',
       properties: {
-        data: { type: 'object' },
+        data: { type: 'object', properties: { name: { type: 'string' } } },
         code: { type: 'number' }
       }
     }

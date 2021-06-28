@@ -3,7 +3,7 @@ import { Resource } from 'fastify-autoroutes';
 import { getProfile } from './_assets/hello.service';
 import { HelloRequest, helloSchema } from './_assets/hello.schema';
 
-export default (fastifyInstance: FastifyInstance) =>
+export default (instance: FastifyInstance) =>
   <Resource>{
     get: {
       handler: async () => 'Hello, Route!!'
@@ -13,10 +13,10 @@ export default (fastifyInstance: FastifyInstance) =>
       handler: async (request: HelloRequest) => {
         const { name } = request.body;
         if (!name) {
-          throw fastifyInstance.httpErrors.notFound();
+          throw instance.httpErrors.notFound();
         }
         const profile = getProfile(name);
-        return profile;
+        return instance.responseFormat(profile);
       }
     }
   };
