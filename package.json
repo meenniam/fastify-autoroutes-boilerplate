@@ -6,12 +6,9 @@
   "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typec:watch": "tsc -p tsconfig.json -w",
-    "serve:watch": "nodemon dist/index.js",
-    "dev": "concurrently --kill-others \"yarn typec:watch\" \"yarn serve:watch\"",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
-    "dev:nodemon": "nodemon"
+    "start": "ts-node -p src/index.ts",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +26,6 @@
     "@types/node": "^15.12.5",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
-    "concurrently": "^6.2.0",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
