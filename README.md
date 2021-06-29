@@ -4,9 +4,10 @@ this is our fastify boilerplate with **typescript** and **fastify-autoroutes** t
 
 นี่เป็น template fastify โดยใช้ **typescript** และใช้ plugin **fastify-autoroutes** ในการสร้าง route ต่างๆ โดยอิงจากชื่อ file และ folder เราหวังว่านี่จะเป็นประโยชน์คนที่ต้องการใช้ fastify แต่ไม่อยากตั้งค่าต่างๆ
 
-#### Alternatives
+#### see also
 - [fastify-autoroutes](https://github.com/GiovanniCardamone/fastify-autoroutes)
 - [fastify](https://www.fastify.io/)
+- [@sinclair/typebox](https://www.npmjs.com/package/@sinclair/typebox)
 - [typescript](https://www.typescriptlang.org/)
 
 ### Usage
