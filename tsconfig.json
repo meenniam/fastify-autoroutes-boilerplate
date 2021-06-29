@@ -8,11 +8,11 @@
         "module": "commonJS",
         "moduleResolution": "node",
         "declaration": true,
-        // "strict": true,
+        "strict": true,
     },
     "include": [
         "./src/**/*.ts"
-, "src/routes/hello/.assets/.schema.ts", "src/routes/hello/.service.ts"    ],
+    ],
     "exclude": [
         "node_modules",
         "dist/**/*"
