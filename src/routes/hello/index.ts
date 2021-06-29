@@ -12,11 +12,19 @@ export default (instance: FastifyInstance) =>
       schema: helloSchema,
       handler: async (request: HelloRequest) => {
         const { name } = request.body;
-        if (!name) {
-          throw instance.httpErrors.notFound();
-        }
         const profile = getProfile(name);
         return instance.responseFormat(profile);
+      }
+    },
+    put: {
+      handler: async () => {
+        try {
+          throw new Error('my Error');
+        } catch (error) {
+          if (error instanceof Error) {
+            return instance.httpErrors.forbidden(error.message);
+          }
+        }
       }
     }
   };
