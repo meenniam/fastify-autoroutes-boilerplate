@@ -21,7 +21,13 @@ export const helloSchema = {
     200: {
       type: 'object',
       properties: {
-        data: { type: 'object', properties: { name: { type: 'string' } } },
+        data: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            age: { type: 'number' }
+          }
+        },
         code: { type: 'number' }
       }
     }
