@@ -26,7 +26,7 @@ this is our fastify boilerplate with **typescript** and **fastify-autoroutes** t
 
 ### Documentation
 ----------------
-ัyou can create your route api by creating files or directories into routes directory
+you can create your route api by creating files or directories into routes directory
 
 *for example*
 
@@ -45,6 +45,7 @@ this is our fastify boilerplate with **typescript** and **fastify-autoroutes** t
 ##### ignore file or directory
 
 you can create file with these format
+
 	routes
      |--.ignored-directory
 	 |--_ignored-directory
