@@ -1,4 +1,4 @@
-import { FastifyInstance } from 'fastify';
+import { FastifyInstance, FastifyReply } from 'fastify';
 import { Resource } from 'fastify-autoroutes';
 import { getProfile } from './_assets/hello.service';
 import { HelloRequest, helloSchema } from './_assets/hello.schema';
@@ -10,10 +10,10 @@ export default (instance: FastifyInstance) =>
     },
     post: {
       schema: helloSchema,
-      handler: async (request: HelloRequest) => {
+      handler: async (request: HelloRequest, reply: FastifyReply) => {
         const { name } = request.body;
         const profile = getProfile(name);
-        return instance.responseFormat(profile);
+        return instance.responseFormat(reply, profile, 201);
       }
     },
     put: {

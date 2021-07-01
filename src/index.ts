@@ -1,4 +1,4 @@
-import fastify, { FastifyInstance } from 'fastify';
+import fastify, { FastifyInstance, FastifyReply } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import fastifyPrintRoutes from 'fastify-print-routes';
 import fastifySensible from 'fastify-sensible';
@@ -15,10 +15,11 @@ declare module 'fastify' {
   interface IResponseReturn {
     data: any;
     code: number;
+    reply: FastifyReply;
   }
   export interface FastifyInstance {
     // eslint-disable-next-line
-    responseFormat: (data: any, code?: number) => IResponseReturn;
+    responseFormat: (reply: FastifyReply, data: any, code?: number) => IResponseReturn;
   }
 }
 
@@ -44,8 +45,8 @@ server.register(
   { prefix: '/v1' }
 );
 
-server.decorate('responseFormat', function (data: any, code: number = 200) {
-  return { data, code };
+server.decorate('responseFormat', function (reply: FastifyReply, data: any, code: number = 200) {
+  reply.code(code).send({ data, code });
 });
 
 server.listen(8080, '0.0.0.0', (err, address) => {
