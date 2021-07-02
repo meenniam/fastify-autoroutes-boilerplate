@@ -7,16 +7,10 @@ export const HelloTypes = Type.Object({
   age: Type.Optional(Type.Number())
 });
 
-export const HelloParamsTypes = Type.Object({
-  helloId: Type.String()
-});
-
 export type HelloBodyType = Static<typeof HelloTypes>;
-export type HelloParamsType = Static<typeof HelloParamsTypes>;
 
 export type HelloRequest = FastifyRequest<{
   Body: HelloBodyType;
-  Params: HelloParamsType;
 }>;
 
 // schema
