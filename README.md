@@ -35,12 +35,12 @@ you can create your route api by creating files or directories into routes direc
 	routes
 	 |-- hello
 	 |    |-- index.ts
-	 |    |-- say-hello.ts
+	 |    |-- {helloId}.ts
 	 |-- test.ts
 
 ##### you will get these routes
 	 - /hello
-	 - /hello/say-hello
+	 - /hello/:helloId
 	 - /test
 
 ##### ignore file or directory
